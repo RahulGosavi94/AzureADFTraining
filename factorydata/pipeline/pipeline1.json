@@ -17,9 +17,13 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT * FROM COPYMETADATA WHERE TABLE_NAME = 'Users'",
+						"sqlReaderQuery": "SELECT * FROM COPYMETADATA;",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
 				}
@@ -84,8 +88,39 @@
 										"fileExtension": ".txt"
 									}
 								},
-								"enableStaging": false
-							}
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "AzureSqlTable1",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DelimitedText1",
+									"type": "DatasetReference",
+									"parameters": {
+										"directory": {
+											"value": "@item().Destination_Path",
+											"type": "Expression"
+										},
+										"file_name": {
+											"value": "@concat(item().Table_Name,item().File_Format)",
+											"type": "Expression"
+										},
+										"container": "landing5"
+									}
+								}
+							]
 						},
 						{
 							"name": "On Success",
@@ -149,6 +184,10 @@
 										"type": "String"
 									}
 								}
+							},
+							"linkedServiceName": {
+								"referenceName": "AzureSqlDatabase1",
+								"type": "LinkedServiceReference"
 							}
 						},
 						{
@@ -213,6 +252,10 @@
 										"type": "String"
 									}
 								}
+							},
+							"linkedServiceName": {
+								"referenceName": "AzureSqlDatabase1",
+								"type": "LinkedServiceReference"
 							}
 						}
 					]
