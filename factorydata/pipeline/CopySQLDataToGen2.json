@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "CopySQLDataToGen2",
 	"properties": {
 		"activities": [
 			{
