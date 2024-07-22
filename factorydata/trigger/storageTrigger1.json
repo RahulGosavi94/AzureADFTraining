@@ -1,0 +1,25 @@
+{
+	"name": "storageTrigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopySQLDataToGen2",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/landing5/blobs/",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/847a85eb-3ee0-4031-ac07-4f12e3491cc0/resourceGroups/storageaccounts/providers/Microsoft.Storage/storageAccounts/basictrainingdata",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
