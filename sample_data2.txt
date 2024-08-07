@@ -1,0 +1,11 @@
+id,name,description
+1,John Doe,An example description
+2,Jane Smith,Another example description
+3,Åsa,Description with non-UTF8 characters: Ø
+4,李四,Description in Chinese
+5,Emily,Description with some invalid char: ÿ
+6,Robert,Valid description
+7,Anna,Invalid char:   
+8,Mohamed,Valid description with some special characters: İnanç Esasları
+Ä°nanÃ§ EsaslarÄ±
+æ         

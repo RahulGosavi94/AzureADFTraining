@@ -1,0 +1,10 @@
+id,name,description
+1,John Doe,An example description
+2,Jane Smith,Another example description
+3,Åsa,Description with non-English character: Ø
+4,李四,Description in Chinese
+5,Emily,Description with some special characters: ñ
+6,Robert,Valid description
+7,Anna,Description with special characters: ñ and ß
+8,Ahmed,Description with Arabic characters: أحمد
+9,Mohamed,Description with valid English and special characters: ñ, é
